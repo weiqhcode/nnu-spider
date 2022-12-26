@@ -26,26 +26,3 @@ function onSubmint(dataStr, userAccount, userPassword){
 	return encoded;
 
 }
-function selectServer(uName){
-	var enableServers = true;//是否启用多服务器 true/false
-	var serversArray = new Array();//服务器列表
-
-
-		serversArray[0] = "http://192.168.111.5:81/jsxsd/";
-
-		serversArray[1] = "http://192.168.111.4:80/jsxsd/";
-
-
-var loginUrl = "xk/LoginToXk";
-if(enableServers == true){
-	if(!isNaN(uName)){//必须为数字
-		var modVal = eval(uName % serversArray.length);
-		loginUrl = serversArray[modVal] + loginUrl;
-	}else{
-		loginUrl = serversArray[0] + loginUrl;
-	}
-}else{
-	loginUrl = ""+ loginUrl;
-}
-return loginUrl;
-}
